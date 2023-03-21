@@ -1,1 +1,86 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <windows.h>
+#include <time.h>
+
+using namespace std;
+
+int main()
+{
+    std::string a, b;
+    cout << "Witamy w naszej Grze, Prosze o wybranie jendego z 3 slow kamien,papier lub nozyce, bez polskich znakow";
+    Sleep(6000);
+    system("cls");
+    cout << "gracz 1: ";
+    char c;
+    while ((c = getch()) != '\r')
+    {
+        if (c == '\b')
+        {
+            if (!a.empty())
+            {
+                a.pop_back();
+                cout << "\b \b";
+            }
+        }
+        else
+        {
+            a.push_back(c);
+            cout << "*";
+        }
+    }
+    cout << endl;
+
+    cout << "gracz 2: ";
+    while ((c = getch()) != '\r')
+    {
+        if (c == '\b')
+        {
+            if (!b.empty())
+            {
+                b.pop_back();
+                cout << "\b \b";
+            }
+        }
+        else
+        {
+            b.push_back(c);
+            cout << "*";
+        }
+    }
+    cout << endl;
+
+    if (a=="kamien" && b=="papier"  || a=="papier" && b=="kamien")
+    {
+
+        cout << "Papier wygral \n gracz 1 podal: "<< a << " \n gracz 2 podal: "<<b;
+    }
+    else if(a=="kamien" && b=="nozyczki" || a=="nozyczki" && b=="kamien")
+        {
+            cout << "kamien wygrywa \n gracz 1 podal: "<< a << " \n gracz 2 podal: "<<b;
+        }else if(a=="nozyczki" && b=="papier" || a=="papier" && b=="nozyczki")
+        {
+            cout << "wygrywaja nozyczki \n gracz 1 podal: "<< a << " \n gracz 2 podal: "<<b;
+        }else if(a=="kamien" && b=="kamien"|| a=="papier" && b=="papier")
+        {
+            if(a=="kamien" && b=="kamien")
+            {
+                cout << " REMIS!\n Obaj gracze wybrali kamien!";
+            }else if(a=="nozyczki" && b=="nozyczki")
+            {
+                cout << "REMIS!\n Obaj gracze wybrali nozyczki!";
+            }else
+            {
+                cout << "REMIS!\n Obaj gracze wybrali papier!";
+            }
+
+        }else if(a!="kamien" || a!="nozyczki" || b!="kamien" || b!="nozyczki")
+        {
+            cout << "prosze nie uzywac polskich znakow!";
+        }else{ }
+        return 0;
+}
+
+
 
